@@ -16,7 +16,7 @@
 }
 
 .boto {
-  padding: 10px 16px;
+  padding: 8px 16px;
   border: 1px solid var(--vora);
   border-radius: 999px;
   background: var(--targeta);
@@ -40,4 +40,17 @@
   border-color: var(--primari);
   background: var(--primari);
   color: #fff;
+}
+
+@media (max-width: 720px) {
+  .llista {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 8px;
+  }
+
+  .boto {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
 }

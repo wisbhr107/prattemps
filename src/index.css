@@ -1,7 +1,24 @@
 :root {
-  font-family: Arial, sans-serif;
-  color: #10233d;
-  background: linear-gradient(#e8f1fb, #cfe3f7);
+  --fons: #e8f1fb;
+  --fons-2: #cfe3f7;
+  --targeta: #ffffff;
+  --text: #10233d;
+  --text-suau: #5b6b80;
+  --vora: #d6e2f0;
+  --primari: #1f6feb;
+  --primari-fosc: #1554b8;
+  --primari-suau: #e3eefe;
+  --accent: #f6a609;
+  --error: #c62828;
+  --error-fons: #fdecea;
+  --radi: 18px;
+  --radi-petit: 12px;
+  --espai: 8px;
+  --ombra: 0 4px 16px rgba(16, 35, 61, 0.10);
+
+  font-family: 'Nunito', sans-serif;
+  color: var(--text);
+  background: linear-gradient(to bottom, var(--fons), var(--fons-2));
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -10,8 +27,14 @@
   box-sizing: border-box;
 }
 
-body {
-  min-width: 320px;
-  min-height: 100vh;
+html,
+body,
+#root {
+  min-width: 0;
+  min-height: 100%;
   margin: 0;
+}
+
+body {
+  min-height: 100vh;
 }
