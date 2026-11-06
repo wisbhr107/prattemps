@@ -1,0 +1,117 @@
+.targeta {
+  min-width: 0;
+  padding: 24px;
+  border-radius: var(--radi);
+  background: var(--targeta);
+  box-shadow: var(--ombra);
+}
+
+.capcalera {
+  display: flex;
+  min-width: 0;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ciutat {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.pais {
+  color: var(--text-suau);
+  font-weight: 600;
+}
+
+.actualitzat,
+.maximMinim {
+  margin: 8px 0 0;
+  color: var(--text-suau);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.resum {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.iconoTemps {
+  display: grid;
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primari-suau);
+}
+
+.iconoTemps img {
+  width: 100px;
+  height: 100px;
+}
+
+.dadesPrincipals {
+  min-width: 0;
+}
+
+.temperatura {
+  margin: 0;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.descripcio {
+  margin: 8px 0 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.maximMinim {
+  margin-top: 8px;
+}
+
+.rejilla {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .targeta {
+    padding: 16px;
+  }
+
+  .temperatura {
+    font-size: 56px;
+  }
+
+  .rejilla {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .resum {
+    gap: 16px;
+  }
+
+  .iconoTemps {
+    flex-basis: 88px;
+    width: 88px;
+    height: 88px;
+  }
+
+  .iconoTemps img {
+    width: 80px;
+    height: 80px;
+  }
+}

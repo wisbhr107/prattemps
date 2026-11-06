@@ -5,6 +5,7 @@ import { useApi } from './hooks/useApi';
 import type { Temps } from './tipus';
 import { missatgeError } from './utils/missatgeError';
 import LlistaCiutats from './components/LlistaCiutats';
+import TargetaTemps from './components/TargetaTemps';
 import estils from './App.module.css';
 
 export default function App() {
@@ -25,13 +26,16 @@ export default function App() {
   const { data, loading, error } = useApi<Temps>(url);
 
   return (
-    <main className={estils.pagina}>
+    <div className={estils.pagina}>
       <header className={estils.capcalera}>
-        <h1>PratTemps</h1>
-        <p>El temps ara mateix a vuit ciutats de Catalunya</p>
+        <div className={estils.logo} aria-hidden="true">☀️</div>
+        <div>
+          <h1>PratTemps</h1>
+          <p>El temps ara mateix a vuit ciutats de Catalunya</p>
+        </div>
       </header>
 
-      <div className={estils.contingut}>
+      <main className={estils.contingut}>
         <LlistaCiutats
           ciutats={CIUTATS}
           triadaId={ciutatTriada.id}
@@ -39,9 +43,9 @@ export default function App() {
         />
 
         <section className={estils.resultat} aria-live="polite">
-          {!OWM_KEY && <p>Falta la clau d'OpenWeather</p>}
+          {!OWM_KEY && <p className={estils.avís}>Falta la clau d'OpenWeather</p>}
           {OWM_KEY && loading && (
-            <p>
+            <p className={estils.carregant}>
               <span className={estils.spinner} aria-hidden="true" />
               Carregant el temps: {ciutatTriada.nom}…
             </p>
@@ -52,10 +56,14 @@ export default function App() {
             </p>
           )}
           {OWM_KEY && !loading && error === null && data && (
-            <p>Dades meteorològiques rebudes per a {ciutatTriada.nom}.</p>
+            <TargetaTemps ciutat={ciutatTriada} temps={data} />
           )}
         </section>
-      </div>
-    </main>
+      </main>
+
+      <footer className={estils.peu}>
+        Dades: OpenWeather · Prat FP · 0488 Desenvolupament d'interfícies
+      </footer>
+    </div>
   );
 }

@@ -1,0 +1,32 @@
+.dada {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--espai);
+  padding: 16px;
+  border: 1px solid var(--vora);
+  border-radius: var(--radi-petit);
+  background: var(--primari-suau);
+}
+
+.icona {
+  flex: 0 0 auto;
+  font-size: 20px;
+}
+
+.textos {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.etiqueta {
+  color: var(--text-suau);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.valor {
+  overflow-wrap: anywhere;
+  font-size: 16px;
+}

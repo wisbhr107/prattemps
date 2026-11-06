@@ -1,49 +1,47 @@
 import { useEffect, useState } from 'react';
 
 type EstatApi<T> = {
+  url: string | null;
+  data: T | null;
+  error: number | null;
+};
+
+type ResultatApi<T> = {
   data: T | null;
   loading: boolean;
   error: number | null;
 };
 
-export function useApi<T>(url: string | null): EstatApi<T> {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<number | null>(null);
+export function useApi<T>(url: string | null): ResultatApi<T> {
+  const [resultat, setResultat] = useState<EstatApi<T>>({
+    url: null,
+    data: null,
+    error: null,
+  });
 
   useEffect(() => {
     if (url === null) {
-      setData(null);
-      setLoading(false);
-      setError(null);
       return;
     }
 
     const controller = new AbortController();
+    const urlPeticio = url;
 
     async function carregarDades() {
-      setData(null);
-      setLoading(true);
-      setError(null);
-
       try {
-        const response = await fetch(url, { signal: controller.signal });
+        const response = await fetch(urlPeticio, { signal: controller.signal });
         if (!response.ok) {
-          setError(response.status);
+          setResultat({ url: urlPeticio, data: null, error: response.status });
           return;
         }
 
         const dades = (await response.json()) as T;
-        setData(dades);
+        setResultat({ url: urlPeticio, data: dades, error: null });
       } catch (errorCapturat: unknown) {
         if (errorCapturat instanceof DOMException && errorCapturat.name === 'AbortError') {
           return;
         }
-        setError(0);
-      } finally {
-        if (!controller.signal.aborted) {
-          setLoading(false);
-        }
+        setResultat({ url: urlPeticio, data: null, error: 0 });
       }
     }
 
@@ -54,5 +52,13 @@ export function useApi<T>(url: string | null): EstatApi<T> {
     };
   }, [url]);
 
-  return { data, loading, error };
+  if (url === null) {
+    return { data: null, loading: false, error: null };
+  }
+
+  if (resultat.url !== url) {
+    return { data: null, loading: true, error: null };
+  }
+
+  return { data: resultat.data, loading: false, error: resultat.error };
 }
