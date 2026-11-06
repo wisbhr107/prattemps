@@ -1,0 +1,43 @@
+.seccio {
+  min-width: 0;
+}
+
+.etiqueta {
+  margin: 0 0 16px;
+  color: var(--text-suau);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.llista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.boto {
+  padding: 10px 16px;
+  border: 1px solid var(--vora);
+  border-radius: 999px;
+  background: var(--targeta);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.boto:hover {
+  background: var(--primari-suau);
+}
+
+.boto:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.triada,
+.triada:hover {
+  border-color: var(--primari);
+  background: var(--primari);
+  color: #fff;
+}
