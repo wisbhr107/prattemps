@@ -15,4 +15,6 @@ export const CIUTATS: Ciutat[] = [
   { id: 'manresa', nom: 'Manresa', lat: 41.7251, lon: 1.8266 },
   { id: 'figueres', nom: 'Figueres', lat: 42.2654, lon: 2.9581 },
   { id: 'tortosa', nom: 'Tortosa', lat: 40.8125, lon: 0.5216 },
+  { id: 'hostalets', nom: 'Els Hostalets de Balenyà', lat: 41.8172, lon: 2.2368 },
+  { id: 'nador', nom: 'Nador', lat: 35.1681, lon: -2.9335 },
 ];
