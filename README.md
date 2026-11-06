@@ -6,7 +6,7 @@ PratTemps mostra el temps actual d’una de vuit ciutats de Catalunya. Les dades
 
 ![PratTemps](docs/captura.png)
 
-La captura encara no està inclosa. Desa una imatge de la web amb el nom `captura.png` dins de la carpeta `docs`.
+
 
 ## Com executar el projecte
 
